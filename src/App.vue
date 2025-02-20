@@ -1,5 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
+
+import { onMounted } from "vue";
 </script>
 
 <template>
@@ -42,12 +44,12 @@ nav {
 
 nav a {
   padding: 0 1rem;
-  background: #EBD4A4;
+  background: #ebd4a4;
   margin: 24px;
   font-size: 24px;
   border-radius: 99px;
   text-decoration: none;
-  color: #D1853A;
+  color: #d1853a;
 }
 
 nav a:first-of-type {

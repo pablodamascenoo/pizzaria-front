@@ -1,20 +1,26 @@
 <template>
   <main class="body">
-    <div class="left"><img src="/public/about_pic.jpeg" alt="About" id="about-pic" /></div>
+    <div class="left">
+      <img src="/public/about_pic.jpeg" alt="About" id="about-pic" />
+    </div>
     <div class="right">
       <h2>Nossa Historia</h2>
-      <p>Sd Gastronomia nasceu da inquietude de um coração ansioso por praticar uma cozinha autêntica, honesta, reveladora e com um Q de segredos.
- Nasceu de uma mãe empreendedora e muito apegada a família. 
-Nossa visão é de um modelo que  trás comodidade, conveniência e segurança em condomínios fechados. 
-Nosso missão é trazer um produto de extrema qualidade e sabor, com isso garantir a satisfação e a fidelidade de nossos amigos clientes.</p>
+      <p>
+        Sd Gastronomia nasceu da inquietude de um coração ansioso por praticar
+        uma cozinha autêntica, honesta, reveladora e com um Q de segredos.
+        Nasceu de uma mãe empreendedora e muito apegada a família. Nossa visão é
+        de um modelo que trás comodidade, conveniência e segurança em
+        condomínios fechados. Nosso missão é trazer um produto de extrema
+        qualidade e sabor, com isso garantir a satisfação e a fidelidade de
+        nossos amigos clientes.
+      </p>
     </div>
   </main>
 </template>
 
 <style>
-
-.right{
-  color: #D1853A;
+.right {
+  color: #d1853a;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -23,20 +29,20 @@ Nosso missão é trazer um produto de extrema qualidade e sabor, com isso garant
   height: 550px;
 }
 
-.right h2{
+.right h2 {
   margin: 0;
   font-size: 60px;
   text-align: right;
 }
 
-.right p{
+.right p {
   margin: 0;
   font-size: 20px;
   text-align: right;
   line-height: 2;
 }
 
-.left{
+.left {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -44,7 +50,7 @@ Nosso missão é trazer um produto de extrema qualidade e sabor, com isso garant
   align-items: center;
 }
 
-#about-pic{
+#about-pic {
   width: 850px;
   height: 550px;
   object-fit: cover;
@@ -52,7 +58,7 @@ Nosso missão é trazer um produto de extrema qualidade e sabor, com isso garant
 }
 
 .body {
-  height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
   display: grid;
   justify-content: center;
   align-items: center;

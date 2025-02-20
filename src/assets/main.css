@@ -6,7 +6,7 @@ body {
 }
 
 #app{
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   /* display: flex;
   flex-direction: column;
@@ -19,4 +19,22 @@ body {
   src: url('@/assets/sauce-tomato.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+* {
+  /* box-sizing: border-box;   */
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c1b12;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4a373;
+  border-radius: 10px;
+  border: 3px solid #2c1b12;
 }
