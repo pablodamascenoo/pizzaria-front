@@ -2,8 +2,8 @@
   <main class="body">
     <div class="left">
       <div class="buttons">
-        <a href="#" class="btn">FAÇA SEU PEDIDO</a>
-        <a href="#" class="btn">PROMOÇÕES</a>
+        <a href="/menu" class="btn">FAÇA SEU PEDIDO</a>
+        <!-- <a href="#" class="btn">PROMOÇÕES</a> -->
       </div>
     </div>
     <div class="right">

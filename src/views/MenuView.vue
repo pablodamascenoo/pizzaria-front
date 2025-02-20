@@ -1,19 +1,44 @@
 <template>
     <div class="menu">
         <div class="menu-container">
-            <h1>Escolha seus sabores</h1>
+            <h1>Escolha os sabores das duas metades</h1>
 
+            <div class="half-pizza">
+            <h2>Primeira Metade</h2>
             <ul class="pizza-list">
-                <li v-for="(sabor, index) in sabores" :key="index">
-                    <label>
-                        <input type="checkbox" :value="sabor" v-model="selecionados" />
-                        {{ sabor }}
-                    </label>
+                <li v-for="(sabor, index) in sabores" :key="'first-' + index">
+                <label>
+                    <input type="radio" name="first-half" :value="sabor" v-model="primeiraMetade" />
+                    {{ sabor }}
+                </label>
                 </li>
             </ul>
+            </div>
 
-            <button @click="enviarSabores" :disabled="selecionados.length === 0">
-                Enviar Pedido
+            <div class="half-pizza">
+            <h2>Segunda Metade</h2>
+            <ul class="pizza-list">
+                <li v-for="(sabor, index) in sabores" :key="'second-' + index">
+                <label>
+                    <input type="radio" name="second-half" :value="sabor" v-model="segundaMetade" />
+                    {{ sabor }}
+                </label>
+                </li>
+            </ul>
+            </div>
+
+            <div class="input-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" v-model="nome" />
+            </div>
+
+            <div class="input-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" v-model="endereco" />
+            </div>
+
+            <button @click="enviarSabores" :disabled="!primeiraMetade || !segundaMetade">
+            Enviar Pedido
             </button>
         </div>
     </div>
@@ -34,23 +59,37 @@ export default {
                 "Chocolate",
                 "Romeu e Julieta"
             ],
-            selecionados: [] // Lista de sabores marcados
+            selecionados: [], // Lista de sabores marcados
+            primeiraMetade: "",
+            segundaMetade: "",
+            nome: "",
+            endereco: ""
         };
     },
     methods: {
         async enviarSabores() {
             try {
+                const pedido = {
+                    primeiraMetade: this.primeiraMetade,
+                    segundaMetade: this.segundaMetade,
+                    nome: this.nome,
+                    endereco: this.endereco
+                };
+
                 const response = await fetch("https://api.exemplo.com/pedidos", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ sabores: this.selecionados })
+                    body: JSON.stringify(pedido)
                 });
 
                 if (response.ok) {
                     alert("Pedido enviado com sucesso!");
-                    this.selecionados = [];
+                    this.primeiraMetade = "";
+                    this.segundaMetade = "";
+                    this.nome = "";
+                    this.endereco = "";
                 } else {
                     alert("Erro ao enviar pedido.");
                 }
@@ -64,9 +103,10 @@ export default {
 </script>
 
 <style scoped>
+
 .menu {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     /* align-items: center; */
     padding: 20px;
     height: 100vh;
